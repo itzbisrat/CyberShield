@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberShield</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="node_modules/@xterm/xterm/css/xterm.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="logo-icon">CS</div>
+
+                <div>
+                    <h1>CyberShield</h1>
+                    <p>Security Toolkit</p>
+                </div>
+            </div>
+
+            <nav class="navigation">
+
+                <button class="nav-button active" data-page="dashboard">
+                    Dashboard
+                </button>
+
+                <button class="nav-button" data-page="nmap">
+                    Nmap
+                </button>
+
+                <button class="nav-button" data-page="gobuster">
+                    Gobuster
+                </button>
+
+                <button class="nav-button" data-page="hydra">
+                    Hydra
+                </button>
+
+                <button class="nav-button" data-page="wireshark">
+                    Wireshark
+                </button>
+
+                <button class="nav-button" data-page="terminal">
+                    Terminal
+                </button>
+
+                <button class="nav-button" data-page="settings">
+                    Settings
+                </button>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                CyberShield v1.0.0
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="content">
+
+            <!-- Header -->
+            <header class="topbar">
+
+                <div>
+                    <h2 id="page-title">Dashboard</h2>
+                    <p id="page-subtitle">
+                        Cybersecurity tools in one place
+                    </p>
+                </div>
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    System Ready
+                </div>
+
+            </header>
+
+
+            <!-- Pages -->
+            <section id="page-content">
+
+
+                <!-- Dashboard -->
+                <div class="page" id="dashboard">
+
+                    <div class="welcome">
+                        <h1>Welcome to CyberShield</h1>
+
+                        <p>
+                            A unified desktop environment for
+                            cybersecurity analysis and security tools.
+                        </p>
+                    </div>
+
+
+                    <div class="cards">
+
+                        <div class="card">
+                            <span class="card-label">Tools</span>
+                            <strong>4</strong>
+                            <small>Available tools</small>
+                        </div>
+
+                        <div class="card">
+                            <span class="card-label">System</span>
+                            <strong>Ready</strong>
+                            <small>Application status</small>
+                        </div>
+
+                        <div class="card">
+                            <span class="card-label">Terminal</span>
+                            <strong>Ready</strong>
+                            <small>Command interface</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="tool-section">
+
+                        <h2>Security Tools</h2>
+
+                        <div class="tool-grid">
+
+                            <button class="tool-card" data-page="nmap">
+                                <strong>Nmap</strong>
+                                <span>Network discovery and scanning</span>
+                            </button>
+
+                            <button class="tool-card" data-page="gobuster">
+                                <strong>Gobuster</strong>
+                                <span>Web and directory enumeration</span>
+                            </button>
+
+                            <button class="tool-card" data-page="hydra">
+                                <strong>Hydra</strong>
+                                <span>Credential auditing</span>
+                            </button>
+
+                            <button class="tool-card" data-page="wireshark">
+                                <strong>Wireshark</strong>
+                                <span>Network packet analysis</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Nmap -->
+                
+<div class="page hidden" id="nmap">
+
+    <div class="tool-header">
+        <h1>Nmap</h1>
+        <p>Network discovery and port scanning.</p>
+    </div>
+
+    <div class="tool-panel">
+        <label for="nmap-target">Target IP or hostname</label>
+
+        <input
+            type="text"
+            id="nmap-target"
+            placeholder="127.0.0.1"
+        />
+
+        <button class="primary-button" id="nmap-start">
+            Start Scan
+        </button>
+
+        <button class="primary-button" id="nmap-stop" disabled>
+            Stop Scan
+        </button>
+    </div>
+
+    <div class="terminal-preview">
+        <div class="terminal-title">Nmap Output</div>
+
+        <div
+            class="terminal-body"
+            id="nmap-output"
+            style="white-space: pre-wrap; overflow-y: auto; max-height: 400px;"
+        >Ready. Enter a target to begin.</div>
+    </div>
+
+</div>
+
+
+<div class="page hidden" id="gobuster">
+
+    <div class="tool-header">
+        <h1>Gobuster</h1>
+        <p>Web and directory enumeration.</p>
+    </div>
+
+    <div class="tool-panel">
+        <label for="gobuster-target">Target URL</label>
+        <input
+            type="text"
+            id="gobuster-target"
+            placeholder="http://127.0.0.1"
+        />
+
+        <label for="gobuster-wordlist">Wordlist file path</label>
+        <input
+            type="text"
+            id="gobuster-wordlist"
+            placeholder="C:\wordlists\common.txt"
+        />
+
+        <button class="primary-button" id="gobuster-start">
+            Start Enumeration
+        </button>
+
+        <button class="primary-button" id="gobuster-stop" disabled>
+            Stop Enumeration
+        </button>
+    </div>
+
+    <div class="terminal-preview">
+        <div class="terminal-title">Gobuster Output</div>
+
+        <div
+            class="terminal-body"
+            id="gobuster-output"
+            style="white-space: pre-wrap; overflow-y: auto; max-height: 400px;"
+        >Ready. Enter a target URL and wordlist path.</div>
+    </div>
+
+</div>
+
+                <!-- Hydra -->
+                <div class="page hidden" id="hydra">
+
+                    <div class="tool-header">
+                        <h1>Hydra</h1>
+
+                        <p>
+                            Credential auditing interface.
+                        </p>
+                    </div>
+
+                    <div class="tool-panel">
+
+                        <label>Target</label>
+
+                        <input
+                            type="text"
+                            placeholder="Target host"
+                        >
+
+                        <label>Service</label>
+
+                        <input
+                            type="text"
+                            placeholder="Service"
+                        >
+
+                        <button class="primary-button">
+                            Start Audit
+                        </button>
+
+                    </div>
+
+                    <div class="terminal-preview">
+
+                        <div class="terminal-title">
+                            Hydra Output
+                        </div>
+
+                        <div class="terminal-body">
+                            Hydra terminal output will appear here.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Wireshark -->
+                <div class="page hidden" id="wireshark">
+
+                    <div class="tool-header">
+                        <h1>Wireshark</h1>
+
+                        <p>
+                            Network packet capture and analysis.
+                        </p>
+                    </div>
+
+                    <div class="tool-panel">
+
+                        <p>
+                            Wireshark integration will be configured
+                            here.
+                        </p>
+
+                        <button class="primary-button">
+                            Launch Wireshark
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Terminal -->
+                <div class="page hidden" id="terminal">
+
+                    <div class="tool-header">
+                        <h1>CyberShield Terminal</h1>
+
+                        <p>
+                            Integrated command-line environment.
+                        </p>
+                    </div>
+
+                    <div class="terminal-preview large">
+
+        <script src="node_modules/@xterm/xterm/lib/xterm.js"></script>
+    <script src="renderer.js"></script>
+                <!-- Settings -->
+                <div class="page hidden" id="settings">
+
+                    <div class="tool-header">
+
+                        <h1>Settings</h1>
+
+                        <p>
+                            Configure CyberShield.
+                        </p>
+
+                    </div>
+
+                    <div class="tool-panel">
+
+                        <p>
+                            Tool paths, appearance, terminal
+                            settings and application preferences
+                            will be configured here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    
+
+</body>
+
+</html>
